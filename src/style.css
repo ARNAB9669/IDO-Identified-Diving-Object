@@ -13,11 +13,11 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Makes the "Subscribe" click scroll smoothly */
+    scroll-behavior: smooth;
 }
 
 body{
-    background-color: rgb(5, 5, 5); /* Slightly lighter than pure black for depth */
+    background-color: rgb(5, 5, 5);
     color: white;
     overflow-x: hidden;
 }
@@ -45,12 +45,23 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
+
 .nav_logo{ 
     pointer-events: none;
-    aspect-ratio: 69/69;
+    aspect-ratio: 69/69; /* Your signature style */
     width: 50px;
+}
+
+.nav_left_top h3 {
+    font-size: 1.2rem;
+    color: white;
+}
+.nav_left_bottom h4 {
+    font-size: 0.7rem;
+    color: #888;
+    letter-spacing: 1px;
 }
 
 .nav_right{
@@ -59,14 +70,17 @@ nav{
     align-items: center;
     gap: 30px;
 }
+
 .nav_link h2{
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: color 0.3s ease;
 }
+
 .nav_link:hover h2, .nav_link.current h2{
     color: rgba(0, 255, 255, 1);
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
+
 a{
     text-decoration: none;
     color: white;
@@ -132,6 +146,7 @@ a{
     background-size: 40px 40px;
     background-position: center;
 }
+
 .model_overlay {
     position: absolute;
     top: 50%; left: 50%;
@@ -139,15 +154,23 @@ a{
     color: rgba(0, 255, 255, 0.5);
     letter-spacing: 5px;
     animation: blink 2s infinite;
+    text-align: center;
+    width: 100%;
 }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+canvas#ido_canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
 /*-------------------3D Model - Ends ------------------------------*/
 
 
 /*-------------------Mission Cards (The Grid) - Starts ------------------------------*/
 .card_grid {
     display: grid;
-    /* Creates a responsive grid with many small cards */
+    /* Responsive Grid Logic */
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 30px;
@@ -156,7 +179,7 @@ a{
 .mission_card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    aspect-ratio: 16/9; /* Rectangle shape */
+    aspect-ratio: 16/9;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -166,7 +189,7 @@ a{
     position: relative;
 }
 
-/* ACTIVE CARD STYLING */
+/* ACTIVE CARD */
 .mission_card.active {
     border-color: rgba(0, 255, 255, 0.8);
     background: rgba(0, 255, 255, 0.05);
@@ -182,28 +205,26 @@ a{
     font-weight: bold;
 }
 
-/* DEAD CARD STYLING */
+/* DEAD CARD */
 .mission_card.locked {
     opacity: 0.3;
-    pointer-events: none; /* Not clickable */
+    pointer-events: none;
     filter: grayscale(100%);
     border-style: dashed;
 }
 
-/* CARD INTERNALS */
+/* CARD CONTENT */
 .card_date {
     font-size: 0.7rem;
     text-align: right;
     color: rgba(0, 255, 255, 0.7);
 }
-
 .card_middle {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: center;
     color: #888;
     text-transform: uppercase;
 }
-
 .card_footer {
     display: flex;
     justify-content: space-between;
@@ -232,8 +253,9 @@ summary {
     font-size: 1.1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
-summary::after { content: '+'; color: cyan; }
+summary::after { content: '+'; color: cyan; font-size: 1.5rem; }
 details[open] summary::after { content: '-'; }
 details p { margin-top: 15px; color: #aaa; line-height: 1.5; }
 /*-------------------Tech Details & FAQ - Ends ------------------------------*/
@@ -252,7 +274,7 @@ footer {
     max-width: 1200px;
     margin: auto;
     display: flex;
-    flex-wrap: wrap; /* Allows stacking on mobile */
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 40px;
 }
@@ -265,7 +287,6 @@ footer {
     flex-grow: 1;
     max-width: 500px;
 }
-
 .footer_right_subscribe h4 {
     color: rgba(0, 255, 255, 1);
     margin-bottom: 10px;
@@ -276,7 +297,6 @@ footer {
     gap: 10px;
     margin-top: 15px;
 }
-
 .subscribe_form input {
     flex-grow: 1;
     padding: 10px;
@@ -296,9 +316,66 @@ footer {
     font-weight: bold;
     transition: all 0.3s;
 }
-
 .subscribe_form button:hover {
     background: rgba(0, 255, 255, 0.8);
     color: black;
 }
 /*-------------------Footer - Ends ------------------------------*/
+
+
+
+/*==============================================================*/
+/*-------------------MOBILE RESPONSIVE ZONE---------------------*/
+/*==============================================================*/
+
+@media (max-width: 768px) {
+    
+    /* 1. Hide the Right Nav completely */
+    .nav_right {
+        display: none !important;
+    }
+
+    /* 2. Expand Content Width for small screens */
+    nav, 
+    .bio_section, 
+    .updates_section, 
+    .faq_section, 
+    .objectives_section,
+    .footer_content,
+    .model_header {
+        width: 90vw; /* Uses 90% of screen instead of 80% */
+    }
+
+    /* 3. Adjust Nav Logo Alignment */
+    .nav_left {
+        width: 100%;
+        justify-content: flex-start; /* Keeps logo on left */
+    }
+
+    /* 4. Font Adjustments */
+    .bio_section h1 {
+        font-size: 1.8rem; /* Smaller header for mobile */
+    }
+    
+    /* 5. 3D Section Height */
+    .model_section {
+        height: 50vh; /* Shorter on mobile */
+    }
+    
+    /* 6. Grid Adjustments (Force 1 column if screen is very small) */
+    .card_grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+    }
+
+    /* 7. Footer Stacking */
+    .footer_content {
+        flex-direction: column;
+    }
+    .footer_right_subscribe {
+        width: 100%;
+    }
+    .subscribe_form {
+        flex-direction: column; /* Stack input and button */
+    }
+}
+/*-------------------Mobile - Ends ------------------------------*/
