@@ -3,15 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Misson log || IDO</title>
+  <title>Mission Log || IDO</title>
   <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
-  
 
+  <nav>
+    <div class="nav_left">
+      <div>
+        <img class="nav_logo" src="logo.png" alt="Codevelly Logo">
+      </div>
+      <div>
+        <div class="nav_left_top">
+          <h3>Codevelly</h3>
+        </div>
+        <div class="nav_left_bottom">
+          <h4>IDO-Identified Diving Object!</h4>
+        </div>
+      </div>
+    </div>
+    <div class="nav_right">
+      <div><a class="nav_link current" href="#overview"><h2>Overview</h2></a></div>
+      <div><a class="nav_link" href="#technical"><h2>Tech_Specs</h2></a></div>
+      <div><a class="nav_link" href="#logs"><h2>Mission_Logs</h2></a></div>
+      <div><a class="nav_link nav_sp_link_subscribe" href="#subscribe"><h2>Subscribe</h2></a></div>
+    </div>
+  </nav>
+  <section class="bio_section" id="overview">
+    <div class="bio_container">
+      <h1>PROJECT BRIEFING_</h1>
+      <p class="bio_text">
+        <span class="highlight">STATUS:</span> ACTIVE DEVELOPMENT <br>
+        <span class="highlight">UNIT ID:</span> DT-815 <br><br>
+        IDO is an underwater rover designed to see what lies beneath. It is not just a drone; it is a portal to a world we usually fly over.
+      </p>
+    </div>
+  </section>
+  <section class="model_section">
+    <div class="model_header">
+      <h2>// SCHEMATIC VIEW_</h2>
+      <p>Interact to rotate. Scroll to zoom.</p>
+    </div>
+    
+    <div class="model_viewport">
+      <canvas id="ido_canvas"></canvas>
+      <div class="model_overlay">LOADING SCENE...</div>
+    </div>
+  </section>
+  <section class="objectives_section" id="logs">
+    <h2>// MISSION_OBJECTIVES_DATABASE</h2>
+    <div class="card_grid">
+      
+      <a href="updates/log-001.html" class="mission_card active">
+        <div class="card_date">13 FEB 2026</div>
+        <div class="card_middle">FIRST SPARK.<br>Radio ONLINE.</div>
+        <div class="card_footer">
+          <span class="card_id">LOG-001</span>
+          <span class="card_name">DT-815</span>
+        </div>
+      </a>
 
+      <div class="mission_card locked">
+        <div class="card_date">-- --- ----</div>
+        <div class="card_middle">DATA CORRUPTED</div>
+        <div class="card_footer"><span class="card_id">LOG-002</span><span class="card_name">LOCKED</span></div>
+      </div>
+      
+      <div class="mission_card locked">
+        <div class="card_date">-- --- ----</div>
+        <div class="card_middle">XXXXXXX</div>
+        <div class="card_footer"><span class="card_id">LOG-003</span><span class="card_name">XXXXX</span></div>
+      </div>
 
+      <div class="mission_card locked">
+        <div class="card_date">-- --- ----</div>
+        <div class="card_middle">XXXXXXXX</div>
+        <div class="card_footer"><span class="card_id">LOG-004</span><span class="card_name">XXXX</span></div>
+      </div>
+
+      <div class="mission_card locked">
+        <div class="card_date">-- --- ----</div>
+        <div class="card_middle">XXXXXX</div>
+        <div class="card_footer"><span class="card_id">LOG-005</span><span class="card_name">SECURE</span></div>
+      </div>
+
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-006</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-007</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-008</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-009</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-010</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-011</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-012</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-013</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-014</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-015</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-016</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-017</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-018</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-019</span></div></div>
+      <div class="mission_card locked"><div class="card_middle">TBD</div><div class="card_footer"><span class="card_id">LOG-020</span></div></div>
+
+    </div>
+  </section>
+  <section class="updates_section" id="technical">
+    <h2>// TECHNICAL_DETAILS</h2>
+    <div class="update_container">
+      <article class="update_card">
+        <h3>COMMS_ARCHITECTURE: THE TETHERED BOAT</h3>
+        <p>
+          Direct communication from underwater to the shore is physically impossible due to signal attenuation. 
+          <br><br>
+          <strong>The Solution:</strong> The Rover (IDO) is physically tethered to a small surface boat. 
+          The boat acts as a floating relay station. It receives data from the rover via cable and beams it to the ground station using high-speed Wi-Fi/RF. The boat handles the heavy lifting; the rover just explores.
+        </p>
+      </article>
+    </div>
+  </section>
+  <section class="faq_section">
+    <h2>// FAQ_DATABASE</h2>
+    <div class="faq_wrapper">
+      <details>
+        <summary>Will I be able to build this myself?</summary>
+        <p>
+          <strong>YES.</strong> While the main ocean rover is complex, the <em>Aquarium Mini Submarine</em> variant will be 100% Open Source. 
+          We are releasing a detailed "Zero to Hero" course and a build kit so you can explore your own fish tank in VR.
+        </p>
+      </details>
+      <details>
+        <summary>Is it completly designed by codevelly from Scratch?</summary>
+        <p>Yes, it completely self-developed under codevelly.</p>
+      </details>
+    </div>
+  </section>
+  <footer id="subscribe">
+    <div class="footer_content">
+      
+      <div class="footer_left">
+        <h3>Codevelly Studio</h3>
+        <p>EST. 2024 // INDIA, EARTH</p>
+        <br>
+        <p class="copyright">&copy; 2026 Codevelly. All rights reserved.</p>
+      </div>
+
+      <div class="footer_right_subscribe">
+        <h4>// JOIN_THE_NETWORK</h4>
+        <p>Get notified when the Mini Sub course drops.</p>
+        <form class="subscribe_form">
+          <input type="email" placeholder="ENTER_EMAIL_ADDRESS..." required>
+          <button type="submit">TRANSMIT >></button>
+        </form>
+      </div>
+
+    </div>
+  </footer>
   <script type="module" src="src/main.js"></script>
-  <script type="module" src="src/script.js"></script>
 </body>
 </html>

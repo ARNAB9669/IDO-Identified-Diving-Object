@@ -1,0 +1,304 @@
+/*-------------------Global - Reset - Starts-------------------*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+*::selection{
+    background-color:rgba(0, 255, 255, 0.688);
+    text-shadow: 2px 2px 4px rgba(96, 95, 95, 0.5);
+    color: black;
+}
+
+html {
+    scroll-behavior: smooth; /* Makes the "Subscribe" click scroll smoothly */
+}
+
+body{
+    background-color: rgb(5, 5, 5); /* Slightly lighter than pure black for depth */
+    color: white;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/*-------------------Global - Reset - Ends-------------------*/
+
+
+/*-------------------Nav - Starts ------------------------------*/
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    width: 80vw;
+    max-width: 1200px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav_left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.nav_logo{ 
+    pointer-events: none;
+    aspect-ratio: 69/69;
+    width: 50px;
+}
+
+.nav_right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.nav_link h2{
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+.nav_link:hover h2, .nav_link.current h2{
+    color: rgba(0, 255, 255, 1);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+/*-------------------Nav - Ends ------------------------------*/
+
+
+/*-------------------Bio - Starts ------------------------------*/
+.bio_section, .updates_section, .faq_section, .objectives_section {
+    width: 80vw;
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+.bio_section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: rgba(0, 255, 255, 1);
+}
+
+.bio_text {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #ccc;
+    border-left: 2px solid rgba(0, 255, 255, 0.5);
+    padding-left: 20px;
+}
+.highlight { color: rgba(0, 255, 255, 1); font-weight: bold; }
+/*-------------------Bio - Ends ------------------------------*/
+
+
+/*-------------------3D Model - Starts ------------------------------*/
+.model_section {
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.model_header {
+    width: 80vw;
+    max-width: 1200px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.model_header p { font-size: 0.8rem; opacity: 0.7; }
+
+.model_viewport {
+    width: 90vw;
+    height: 100%;
+    max-width: 1200px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    /* Check Pattern */
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center;
+}
+.model_overlay {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(0, 255, 255, 0.5);
+    letter-spacing: 5px;
+    animation: blink 2s infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+/*-------------------3D Model - Ends ------------------------------*/
+
+
+/*-------------------Mission Cards (The Grid) - Starts ------------------------------*/
+.card_grid {
+    display: grid;
+    /* Creates a responsive grid with many small cards */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.mission_card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    aspect-ratio: 16/9; /* Rectangle shape */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+/* ACTIVE CARD STYLING */
+.mission_card.active {
+    border-color: rgba(0, 255, 255, 0.8);
+    background: rgba(0, 255, 255, 0.05);
+    cursor: pointer;
+}
+.mission_card.active:hover {
+    background: rgba(0, 255, 255, 0.1);
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+.mission_card.active .card_middle {
+    color: white;
+    font-weight: bold;
+}
+
+/* DEAD CARD STYLING */
+.mission_card.locked {
+    opacity: 0.3;
+    pointer-events: none; /* Not clickable */
+    filter: grayscale(100%);
+    border-style: dashed;
+}
+
+/* CARD INTERNALS */
+.card_date {
+    font-size: 0.7rem;
+    text-align: right;
+    color: rgba(0, 255, 255, 0.7);
+}
+
+.card_middle {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.card_footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: #555;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 5px;
+}
+/*-------------------Mission Cards - Ends ------------------------------*/
+
+
+/*-------------------Tech Details & FAQ - Starts ------------------------------*/
+.update_card {
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+details {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+summary {
+    list-style: none;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+}
+summary::after { content: '+'; color: cyan; }
+details[open] summary::after { content: '-'; }
+details p { margin-top: 15px; color: #aaa; line-height: 1.5; }
+/*-------------------Tech Details & FAQ - Ends ------------------------------*/
+
+
+/*-------------------Footer - Starts ------------------------------*/
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 0;
+    margin-top: 80px;
+    background: linear-gradient(to top, rgba(0,255,255,0.05), transparent);
+}
+
+.footer_content {
+    width: 80vw;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on mobile */
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer_left h3 { color: white; margin-bottom: 10px; }
+.footer_left p { color: #666; font-size: 0.9rem; }
+.copyright { font-size: 0.8rem; margin-top: 10px; }
+
+.footer_right_subscribe {
+    flex-grow: 1;
+    max-width: 500px;
+}
+
+.footer_right_subscribe h4 {
+    color: rgba(0, 255, 255, 1);
+    margin-bottom: 10px;
+}
+
+.subscribe_form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.subscribe_form input {
+    flex-grow: 1;
+    padding: 10px;
+    background: black;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    outline: none;
+}
+.subscribe_form input:focus { border-color: cyan; }
+
+.subscribe_form button {
+    padding: 10px 20px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.5);
+    color: cyan;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.subscribe_form button:hover {
+    background: rgba(0, 255, 255, 0.8);
+    color: black;
+}
+/*-------------------Footer - Ends ------------------------------*/
